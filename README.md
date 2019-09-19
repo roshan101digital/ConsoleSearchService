@@ -9,7 +9,7 @@ provider implementations as well.
 This service currently support following operations
 
 * Filter and print Users,Organization & Tickets data with interrelations for a given search field and attribute values
-* Print list of field values each data provider considered for searching
+* Print list of field values considered for searching for each data provider
 
 In order to build the project, you will have to install the following:
 
