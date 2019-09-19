@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>com.roshan.techassessment.swivel.consoleapp</groupId>
+    <artifactId>swivelconsoleapp</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>SwivelConsoleSearchApp</name>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <skipTests>true</skipTests>
+        <maven-plugin.version>3.0.0</maven-plugin.version>
+        <junit.version>4.12</junit.version>        
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.4</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>                            
+                            <mainClass>com.roshan.techassessment.consolesearchservice.Application</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Built-By>ROSHAN</Built-By>
+                            <Class-Path>libs/gson-2.8.4.jar</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                
+            </plugin> 
+            <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>copy-dependencies</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>   
+          <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources-json</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>
+                                        ${basedir}
+                                    </directory>
+                                    <includes>
+                                        <include>**/*.json</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution> 
+                </executions>
+            </plugin>                
+        </plugins>
+        
+    </build>
+
+</project>
