@@ -1,5 +1,16 @@
 # Console Search Service
 
+## Introduction
+
+The Console Search Service standalone application provides functionality for filtering Json structured data for user entered attribute 
+value. Current implementation supports for provide Users, Organization & Ticket structured data. It can be extended easily to accommodate additional
+provider implementations as well. 
+
+This service currently support following operations
+
+* Filter and print Users,Organization & Tickets data with interrelations for a given search field and attribute values
+* Print list of field values each data provider considered for searching
+
 In order to build the project, you will have to install the following:
 
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Maven](https://maven.apache.org/download.cgi)
@@ -20,7 +31,9 @@ Following describe step to build the artifacts from the scratch.
 mvn clean install
 ``` 
 3. Once step 2 completed successfully following artifact will be available in the target folder. 
-        1. ConsoleSearchService/target/swivelconsoleapp-1.0.0.jar     
+        ConsoleSearchService/target
+
+        1. swivelconsoleapp-1.0.0.jar     
         2. json files 'organizations.json','tickets.json','users.json' 
         3. libs/gson-2.8.4.jar
 
